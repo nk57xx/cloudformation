@@ -89,7 +89,7 @@
       Type: 'AWS::EC2::VPCGatewayAttachment'
       Properties:
         VpcId: !Ref MyVPC
-        InternetGatewayId: InternetGateway
+        InternetGatewayId: !Ref InternetGateway
     
     # Route Table
     PublicRouteTable:
