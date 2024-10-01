@@ -20,3 +20,12 @@
         Tags:
           - Key: Name
             Value: PublicSubnet1A
+    AppPrivateSubnet1A:
+      Type: 'AWS::EC2::Subnet'
+      Properties:
+        VpcId: !Ref MyVPC
+        CidrBlock: '172.16.2.0/24'
+        AvailabilityZone: !Select [0, !GetAZs '']
+        Tags:
+          - Key: Name
+            Value: AppPrivateSubnet1A
