@@ -66,7 +66,7 @@
             Value: AppPrivateSubnet2B
   # Data Private Subnet in AZ 2
     DataPrivateSubnet2B:
-      Type: 'AWS::EC2:Subnet'
+      Type: 'AWS::EC2::Subnet'
       Properties:
         VpcId: !Ref MyVPC
         CidrBlock: '172.16.6.0/24'
