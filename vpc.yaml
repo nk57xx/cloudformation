@@ -122,7 +122,7 @@
       Properties:
         InstanceType: t2.micro
         Keyname: nobbi-macbook
-        ImageId: ami-000
+        ImageId: ami-0ebfd941bbafe70c6
         SubnetId: !Ref PublicSubnet1A
         SecurityGroupIds:
              - !Ref BastionSG
