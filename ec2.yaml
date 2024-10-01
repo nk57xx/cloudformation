@@ -115,6 +115,13 @@
         SubnetId: !Ref PublicSubnet1A
         RouteTableId: !Ref PublicRouteTable
 
+    # PublicSubnet2BRouteTableAssociation
+    PublicSubnet2BRouteTableAssociation:
+      Type: 'AWS::EC2::SubnetRouteTableAssociation'
+      Properties:
+        SubnetId: !Ref PublicSubnet2B
+        RouteTableId: !Ref PublicRouteTable
+
     # ALB
     MyLoadBalancer:
       Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
