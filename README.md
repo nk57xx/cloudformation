@@ -39,3 +39,10 @@ aws cloudformation create-stack --stack-name asg-stack --template-body file://as
 aws cloudformation update-stack --stack-name asg-stack --template-body file://asg.yaml
 
 aws cloudformation delete-stack --stack-name asg-stack
+
+# commands for s3-static stack
+aws cloudformation create-stack --stack-name s3-static-stack --template-body file://s3-static.yaml
+
+aws cloudformation update-stack --stack-name s3-static-stack --template-body file://s3-static.yaml
+
+aws cloudformation delete-stack --stack-name s3-static-stack
