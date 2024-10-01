@@ -8,3 +8,31 @@ Resources:
       UserName: 'nk57xxCFN'
       ManagedPolicyArns:
            -  'arn:aws:iam::aws:policy/AdministratorAccess'
+  
+  # My IAM Group
+  MyIAMGroup:
+    Type: 'AWS::IAM::Group'
+    Properties:
+      GroupName: 'developer'
+
+  # Attach User to Group
+  UserToGroup:
+    Type: 'AWS::IAM::UserToGroupAddition'
+    Properties:
+      GroupName: !Ref MyIAMGroup
+      Users:
+        - !Ref MyIAMUser
+
+  # IAM Role for EC2
+  MyIAMRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-07'
+        Statement:
+          - Effect: 'Allow'
+          Principal:
+            Service: ['ec2.amazonaws.com']
+          Action: ['sts:AssumeRole']
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/PowerUserAccess'
