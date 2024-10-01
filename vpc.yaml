@@ -129,6 +129,7 @@
         Tags:
           - Key: Name
             Value: BastionHost
+
     # Bastion Security Group
     BastionSG:
       Type: 'AWS::EC2::SecurityGroup'
@@ -136,7 +137,7 @@
         GroupDescription: 'Enable SSH access'
         VpcId: !Ref MyVPC
         SecurityGroupIngress:
-             - IpProtocol: tcp
-              FromPort: 22
-              ToPort: 22
-              CidrIp: 93.230.102.210/32
+             -  IpProtocol: tcp
+                FromPort: 22
+                ToPort: 22
+                CidrIp: 93.230.102.210/32
