@@ -1,7 +1,7 @@
 # cloudformation
 Cloudformation documentation: https://docs.aws.amazon.com/cloudformation/
 
-# commands für s3 stack
+# commands for s3 stack
 aws cloudformation create-stack --stack-name nk57xx-s3-bucket-stack --template-body file://s3-bucket.yaml
 
 aws cloudformation describe-stacks --stack-name nk57xx-s3-bucket-stack
