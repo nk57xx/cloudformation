@@ -121,7 +121,7 @@
       Type: 'AWS::EC2::Instance'
       Properties:
         InstanceType: t2.micro
-        Keyname: nobbi-macbook
+        KeyName: nobbi-macbook
         ImageId: ami-0ebfd941bbafe70c6
         SubnetId: !Ref PublicSubnet1A
         SecurityGroupIds:
@@ -141,3 +141,55 @@
                 FromPort: 22
                 ToPort: 22
                 CidrIp: 93.230.102.210/32
+
+    # AppInstance1A
+    AppInstance1A:
+      Type: 'AWS::EC2::Instance'
+      Properties:
+        InstanceType: t2.micro
+        KeyName: nobbi-macbook
+        ImageId: ami-0ebfd941bbafe70c6
+        SubnetId: !Ref AppPrivateSubnet1A
+        SecurityGroupIds:
+             - !Ref AppInstance1ASG
+        Tags:
+          - Key: Name
+            Value: AppInstance1A
+
+    # AppInstance1A Security Group
+    AppInstance1ASG:
+      Type: 'AWS::EC2::SecurityGroup'
+      Properties:
+        GroupDescription: 'Allow SSH access from Bastion Host'
+        VpcId: !Ref MyVPC
+        SecurityGroupIngress:
+             -  IpProtocol: tcp
+                FromPort: 22
+                ToPort: 22
+                SourceSecurityGroupId: !Ref BastionSG
+
+    # AppInstance2B
+    AppInstance2B:
+      Type: 'AWS::EC2::Instance'
+      Properties:
+        InstanceType: t2.micro
+        KeyName: nobbi-macbook
+        ImageId: ami-0ebfd941bbafe70c6
+        SubnetId: !Ref AppPrivateSubnet2B
+        SecurityGroupIds:
+             - !Ref AppInstance2BSG
+        Tags:
+          - Key: Name
+            Value: AppInstance2B
+
+    # AppInstance2B Security Group
+    AppInstance2BSG:
+      Type: 'AWS::EC2::SecurityGroup'
+      Properties:
+        GroupDescription: 'Allow ping from from AppInstance1A'
+        VpcId: !Ref MyVPC
+        SecurityGroupIngress:
+             -  IpProtocol: icmp
+                FromPort: -1
+                ToPort: -1
+                SourceSecurityGroupId: !Ref AppInstance1ASG
