@@ -74,3 +74,12 @@
         Tags:
           - Key: Name
             Value: DataPrivateSubnet2B
+
+
+  # Internet Gateway IGW
+  InternetGateway:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties:
+      Tags:
+        - Key: Name
+          Value: MyVPC-IGW
