@@ -117,7 +117,7 @@
 
     # ALB
     MyLoadBalancer:
-      Type: 'AWS::ElasLoadBalancingV2::LoadBalancer'
+      Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
       Properties:
         Subnets:
           - !Ref PublicSubnet1A
@@ -132,6 +132,9 @@
         VpcId: !Ref MyVPC
         Port: 80
         Protocol: 'HTTP'
+        Targets:
+          - Id: !Ref WebServerInstance1A
+          - Id: !Ref WebServerInstance2B
     
     # Listener for ALB
     MyLIstener:
@@ -194,4 +197,4 @@
             yum install -y httpd
             systemctl start httpd
             systemctl enable httpd
-            echo "Hello from My Web Server 1A" > /var/www/html/index.html
+            echo "Hello from My Web Server 2B" > /var/www/html/index.html
