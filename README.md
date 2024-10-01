@@ -25,3 +25,17 @@ aws cloudformation create-stack --stack-name iam-stack --template-body file://ia
 aws cloudformation update-stack --stack-name iam-stack --template-body file://iam.yaml --capabilities CAPABILITY_NAMED_IAM
 
 aws cloudformation delete-stack --stack-name iam-stack
+
+# commands for ec2 stack
+aws cloudformation create-stack --stack-name ec2-stack --template-body file://ec2.yaml
+
+aws cloudformation update-stack --stack-name ec2-stack --template-body file://ec2.yaml
+
+aws cloudformation delete-stack --stack-name ec2-stack
+
+# commands for asg stack
+aws cloudformation create-stack --stack-name asg-stack --template-body file://asg.yaml
+
+aws cloudformation update-stack --stack-name asg-stack --template-body file://asg.yaml
+
+aws cloudformation delete-stack --stack-name asg-stack
