@@ -108,3 +108,10 @@
         RouteTableId: !Ref PublicRouteTable
         DestinationCidrBlock: '0.0.0.0/0'
         GatewayId: !Ref InternetGateway
+        
+    # PublicSubnet1ARouteTableAssociation
+    PublicSubnet1ARouteTableAssociation:
+      Type: 'AWS::EC2::SubnetRouteTableAssociation'
+      Properties:
+        SubnetId: !Ref PublicSubnet2B
+        RouteTableId: !Ref PublicRouteTable
