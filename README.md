@@ -18,3 +18,8 @@ aws cloudformation describe-stacks --stack-name vpc-stack
 aws cloudformation update-stack --stack-name vpc-stack --template-body file://vpc.yaml
 
 aws cloudformation delete-stack --stack-name vpc-stack
+
+# commands for iam stack
+aws cloudformation create-stack --stack-name iam-stack --template-body file://iam.yaml --capabilities CAPABILITY_NAMED_IAM
+
+aws cloudformation update-stack --stack-name iam-stack --template-body file://iam.yaml --capabilities CAPABILITY_NAMED_IAM
