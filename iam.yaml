@@ -7,4 +7,4 @@ Resources:
     Properties:
       UserName: 'nk57xxCFN'
       ManagedPolicyArns:
-           -  'arn:aws:iam::aws:policy/AdministratorAccess' 
+           -  'arn:aws:iam::aws:policy/AdministratorAccess'
