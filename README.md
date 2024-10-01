@@ -46,3 +46,10 @@ aws cloudformation create-stack --stack-name s3-static-stack --template-body fil
 aws cloudformation update-stack --stack-name s3-static-stack --template-body file://s3-static.yaml
 
 aws cloudformation delete-stack --stack-name s3-static-stack
+
+# commands for rds stack
+aws cloudformation create-stack --stack-name rds-stack --template-body file://rds.yaml
+
+aws cloudformation update-stack --stack-name rds-stack --template-body file://rds.yaml
+
+aws cloudformation delete-stack --stack-name rds-stack
